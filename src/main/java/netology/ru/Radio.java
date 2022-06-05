@@ -1,19 +1,32 @@
 package netology.ru;
 
 public class Radio {
-    private int currentStation;
-    private int currentVolume;
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int currentStation = minStation;
+
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
 
     // от 0 до 9
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
+        if (currentStation < minStation) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
     }
+
+    public int getMaxStation() {
+        return maxStation;
+
+
+    }
+
 
     //получить значение
     public int getCurrentStation() {
@@ -22,8 +35,8 @@ public class Radio {
 
     // увеличить на 1
     public void next() {
-        if (currentStation == 9) {
-            currentStation = 0;
+        if (currentStation == maxStation) {
+            currentStation = minStation;
         } else {
             currentStation++;
         }
@@ -31,21 +44,21 @@ public class Radio {
     // уменьшить на 1
 
     public void prev() {
-        if (currentStation == 0) {
-            currentStation = 9;
+        if (currentStation == minStation) {
+            currentStation = maxStation;
         } else {
             currentStation--;
         }
     }
 
-    //Проверка и установка значения от 0 до 10
+    //Проверка и установка значения от 0 до 100
     public void setCurrentVolume(int currentVolume) {
 
 
-        if (currentVolume < 0) {
+        if (currentVolume < minVolume) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
@@ -55,15 +68,15 @@ public class Radio {
         return currentVolume;
     }
 
-    public void volumePlus() { // Увеличение +1 до 10
-        if (currentVolume == 10) {
+    public void volumePlus() { // Увеличение +1 до 100
+        if (currentVolume == maxVolume) {
             return;
         }
         currentVolume++;
     }
 
     public void volumeMin() { // Уменьшение -1 до 0
-        if (currentVolume == 0) {
+        if (currentVolume == minVolume) {
             return;
         }
         currentVolume--;

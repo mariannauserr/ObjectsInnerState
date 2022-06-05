@@ -1,14 +1,16 @@
 import netology.ru.Radio;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
+    Radio station = new Radio();
+
     @ParameterizedTest
     @CsvSource({"0,0", "1,1", "8,8", "9,9", "-1,0", "10,0"})
     public void setCurrentStationTest(int dataStation, int expected) {
-        Radio station = new Radio();
 
         station.setCurrentStation(dataStation);
 
@@ -20,7 +22,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvSource({"0,1", "1,2", "9,0"})
     public void nextTest(int dataStation, int expected) {
-        Radio station = new Radio();
+
 
         station.setCurrentStation(dataStation);
         station.next();
@@ -34,7 +36,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvSource({"0,9", "1,0", "9,8"})
     public void prevTest(int dataStation, int expected) {
-        Radio station = new Radio();
+
 
         station.setCurrentStation(dataStation);
         station.prev();
@@ -44,10 +46,12 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
+    Radio volume = new Radio();
+
     @ParameterizedTest
     @CsvSource({"0,0", "1,1", "8,8", "9,9", "-1,0", "11,0"})
     public void setCurrentVolumeTest(int dataVolume, int expected) {
-        Radio volume = new Radio();
+
 
         volume.setCurrentVolume(dataVolume);
 
@@ -60,7 +64,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvSource({"0,1", "1,2", "9,10", "10,10", "-1,1", "11,1"})
     public void volumePlusTest(int dataVolume, int expected) {
-        Radio volume = new Radio();
+
 
         volume.setCurrentVolume(dataVolume);
         volume.volumePlus();
@@ -73,7 +77,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvSource({"0,0", "1,0", "10,9", "11,0", "-1,0"})
     public void volumeMinTest(int dataVolume, int expected) {
-        Radio volume = new Radio();
+
 
         volume.setCurrentVolume(dataVolume);
         volume.volumeMin();

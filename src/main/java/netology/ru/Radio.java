@@ -21,11 +21,7 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public int getMaxStation() {
-        return maxStation;
 
-
-    }
 
 
     //получить значение
@@ -59,7 +55,7 @@ public class Radio {
             return;
         }
         if (currentVolume > maxVolume) {
-            return;
+
         }
         this.currentVolume = currentVolume;
     }
@@ -70,7 +66,7 @@ public class Radio {
 
     public void volumePlus() { // Увеличение +1 до 100
         if (currentVolume == maxVolume) {
-            return;
+
         }
         currentVolume++;
     }

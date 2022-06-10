@@ -49,7 +49,7 @@ public class RadioTest {
     Radio volume = new Radio();
 
     @ParameterizedTest
-    @CsvSource({"0,0", "1,1", "8,8", "9,9", "-1,0", "11,0"})
+    @CsvSource({"0,0", "1,1", "8,8", "9,9", "-1,0", "98,98", "99,99", "100,100"})
     public void setCurrentVolumeTest(int dataVolume, int expected) {
 
 
@@ -62,7 +62,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"0,1", "1,2", "9,10", "10,10", "-1,1", "11,1"})
+    @CsvSource({"0,1", "1,2", "9,10", "-1,1", "99,100", "98,99" })
     public void volumePlusTest(int dataVolume, int expected) {
 
 
@@ -75,7 +75,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"0,0", "1,0", "10,9", "11,0", "-1,0"})
+    @CsvSource({"0,0", "1,0", "10,9", "-1,0", "100,99", "99,98"})
     public void volumeMinTest(int dataVolume, int expected) {
 
 
